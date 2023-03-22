@@ -5,8 +5,11 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const PROMPT = "Kuvittele että olet William Shakespeare ja muotoile seuraava teksti:";
+const MAX_TOKENS = 50;
 
 function main() {
+  if (!process.env.OPENAI_API_KEY) throw new Error("No API key found");
+
   const ext = new Extension({ name, description, version, author });
   ext.run();
 
@@ -25,7 +28,7 @@ function main() {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `${PROMPT} ${message}`,
-      max_tokens: 50,
+      max_tokens: MAX_TOKENS,
     });
 
     if (!completion.data.choices[0].text) return;

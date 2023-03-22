@@ -7,7 +7,7 @@ dotenv.config();
 const PROMPT = "Kuvittele että olet William Shakespeare ja muotoile seuraava teksti:";
 const MAX_TOKENS = 50;
 
-function main() {
+async function main() {
   if (!process.env.OPENAI_API_KEY) throw new Error("No API key found");
 
   const ext = new Extension({ name, description, version, author });
@@ -41,4 +41,9 @@ function main() {
   ext.interceptByNameOrHash(HDirection.TOSERVER, "Shout", onChat);
   ext.interceptByNameOrHash(HDirection.TOSERVER, "Whisper", onChat);
 }
-main();
+main().catch((err) => {
+  if (err instanceof Error) {
+    console.log(err);
+    process.exit(1);
+  }
+});

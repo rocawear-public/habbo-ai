@@ -41,6 +41,7 @@ async function main() {
   ext.interceptByNameOrHash(HDirection.TOSERVER, "Shout", onChat);
   ext.interceptByNameOrHash(HDirection.TOSERVER, "Whisper", onChat);
 }
+
 main().catch((err) => {
   if (err instanceof Error) {
     console.log(err);

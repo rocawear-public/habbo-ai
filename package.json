@@ -1,0 +1,36 @@
+{
+  "name": "habbo-ai",
+  "version": "1.0.0",
+  "description": "habbo-ai",
+  "main": "dist/src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts -p 9092",
+    "start": "node dist/src/index.js",
+    "build": "tsc",
+    "lint": "pnpm run prettier:fix && pnpm run lint:fix",
+    "lint:check": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prettier:check": "prettier --config .prettierrc src/**/*.ts --check",
+    "prettier:fix": "prettier --config .prettierrc src/**/*.ts --write"
+  },
+  "keywords": [],
+  "author": "r",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.4",
+    "tsx": "^3.12.5",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "gnode-api": "^0.2.15",
+    "openai": "^3.2.1"
+  }
+}

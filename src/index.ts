@@ -31,7 +31,7 @@ function main() {
       max_tokens: MAX_TOKENS,
     });
 
-    if (!completion.data.choices[0].text) throw new Error("No response");
+    if (!completion.data.choices[0].text) return;
     const reply = completion.data.choices[0].text.trim();
     packet.replaceString(index, reply);
     ext.sendToServer(packet);
